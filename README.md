@@ -42,6 +42,8 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+In my opinion, closures is when we combined a function surrounding with a lexical enviromment or the variables outside the function.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +65,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+Closure used in this code is when we created data for each person dansRoll, and zoesRoll. We used variables outside the function to determine the person who has a different random number of rolls.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+The name Dan is the same, but the only info that change is the new roll because we used it as a random number.
+
 c. What is the lexical scope of `newRoll`? 
+The lexical scope of newRoll is a children scope that is inside another function  that is the parent scope, and that newRoll returns to the function of personalDice
 
 ### Task 3 - Stretch Goals
 

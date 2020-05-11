@@ -27,11 +27,14 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+ * The difference between counter1, and counter2 is that counter1 is a function scope because the variables is declared inside the function, and counter2 is a global scope because the variable is declare outside anywhere in our code.
  * 
  * 2. Which of the two uses a closure? How can you tell?
+ * counter2 is closure because we have a function that works together with a variable outisde in the lexical enviroment
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ *We can use counter1 when we have to code a lot of information, if everything is inside the function scope, we dont use a lot of memory, and we wont slow down our system.
+ for counter2, we can use it when we dont have to use a lof of coding information, and we can use it for callback functions too.
 */
 
 // counter1 code
@@ -56,11 +59,14 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
-
-}
+  const scoreTeam = Math.floor(Math.random() * 3);
+  
+  return scoreTeam;
+  }
+  
+inning();
 
 /* Task 3: finalScore()
 
@@ -76,11 +82,21 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
-}
+function finalScore(cb, num){
+  let home = 0;
+  let away = 0;
+  let score = {};
+  
+  for(let i = 0; i < num; i++){
+    score.home = home;
+    score.away = away;
+   home += cb(inning);
+    away += cb(inning);
+  };
+      return score;
+};
+  
+  console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -103,8 +119,23 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(cb, numInnings) {
+  let home = 0;
+  let away = 0;
+
+  for(let i = 1; i <= numInnings; i++){
+    let homeScore = cb(inning);
+    let awayScore = cb(inning);
+      console.log( `${i}th inning: Away Team ${awayScore} - Home Team ${homeScore}`);
+
+    home += homeScore;
+    away += awayScore;
+  }
+
+console.log(`Final score is : Away Team ${away} - Home Team ${home}`);
 }
+
+
+scoreboard(inning, 9);
 
 
