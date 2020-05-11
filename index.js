@@ -126,14 +126,7 @@ function scoreboard(cb, numInnings) {
   for(let i = 1; i <= numInnings; i++){
     let homeScore = cb(inning);
     let awayScore = cb(inning);
-
-    if( i ===  1) {
-    console.log( `${i}th inning: Away Team ${awayScore} - Home Team ${homeScore}`)
-    }
-
-    else {
-          console.log(`${i}th inning: Away Team ${awayScore} - Home Team ${homeScore}`);
-          }
+      console.log( `${i}th inning: Away Team ${awayScore} - Home Team ${homeScore}`);
 
     home += homeScore;
     away += awayScore;
